@@ -67,14 +67,7 @@ def getKey():
 df_key = getKey() #starts a new table which will also stores our key email values from the sample
 df_key = df_key.sort_values(by=['Name'])
 
-def pullRelData(df)
-	new_row = df.loc[10]
-	df = df.append(new_row,ignore_index=True)
-
-	df.at[62, "Name"] = "TEST"
-	df.at[62, "Attendee Email"] = "TEST@test.com"
-	df.at[62, "Attendance Duration"] = "0 mins"
-	
+def pullRelData(df):
 	df[['Attendance Time','M']] = df['Attendance Duration'].str.split(' ', expand=True) #splits duration to int time and char min
 
 	df[['Date','Start Hour']] = df['Meeting Start Time'].str.split(' ',expand=True)
@@ -113,7 +106,7 @@ def pullRelData(df)
 
 for each in unique_files:
 	df = pd.read_csv(cwd+"/"+unique_files[each], encoding="UTF-16LE", sep="\t")	
-	pullRelData(df)
+	df = pullRelData(df)
 	##Attach new data to key data
 	dateName = df["Date"][0]
 	df_key[dateName] = df["Attendance Time"]
