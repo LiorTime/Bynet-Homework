@@ -53,7 +53,7 @@ pth, newdir = createDir("Attendance") #pth is path to csv_files/Attendance
 
 def getKey():
     df_key = pd.DataFrame()
-    df_sample = pd.read_csv('participant-20220823132400.csv', encoding="UTF-16LE", sep="\t")
+    df_sample = pd.read_csv(cdcwd+"/"+filesList[0], encoding="UTF-16LE", sep="\t")
     df_sample = df_sample.drop_duplicates(subset=['Attendee Email'])
     
     df_sample = df_sample.set_index('Attendee Email')
