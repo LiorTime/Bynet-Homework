@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  ex4:
+    image: ex4
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 5002:5002
